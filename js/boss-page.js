@@ -62,7 +62,7 @@ pompom: {
         cooldown: { value: "", priority: "" },
         critResist: { value: "", priority: "" },
         debuffResist: { value: "", priority: "" },
-        beascuitOption: {text: "Poison DMG", value: "60", priority: "yellow"}
+        beascuitOption: {text: "Atk SPD", value: "n×4", priority: "yellow"}
     },
     blackSaphire: {
         atk: { value: "39+", priority: "yellow" },
@@ -102,7 +102,7 @@ pompom: {
         cooldown: { value: "14.1-3/14.4-6", priority: "green" },
         critResist: { value: "0", priority: "red" },
         debuffResist: { value: "0", priority: "red" },
-        beascuitOption: { text: "HP+Cooldown", value: "(n×3 + n×1)", priority: "yellow" }
+        beascuitOption: { text: "HP+Cooldown|HP", value: "(n×3 + n×1)|(n×4)", priority: "yellow" }
     },
     creamFerret: {
         atk: { value: "30+", priority: "yellow" },
@@ -112,7 +112,7 @@ pompom: {
         amplifyBuff: { value: "0", priority: "red" },
         def: { value: "0", priority: "red" },
         atkSpd: { value: "5+", priority: "green" },
-        cooldown: { value: "59+", priority: "green" },
+        cooldown: { value: "57.8+", priority: "green" },
         critResist: { value: "0", priority: "red" },
         debuffResist: { value: "0", priority: "red" },
         beascuitOption: { text: "Cooldown", value: "n×4", priority: "yellow" }
@@ -174,7 +174,7 @@ pompom: {
         hp: { value: "35", priority: "red" },
         crit: { value: "21.6", priority: "green" },
         dmgResist: { value: "0", priority: "red" },
-        amplifyBuff: { value: "0++", priority: "yellow" },
+        amplifyBuff: { value: "0++/6+", priority: "yellow" },
         def: { value: "0", priority: "red" },
         atkSpd: { value: "79.5+", priority: "yellow" },
         cooldown: { value: "1.2-3.5", priority: "green" },
@@ -255,7 +255,7 @@ pompom: {
         amplifyBuff: { value: "0", priority: "red" },
         def: { value: "0", priority: "0" },
         atkSpd: { value: "0", priority: "red" },
-        cooldown: { value: "23.1", priority: "green" },
+        cooldown: { value: "24.1", priority: "green" },
         critResist: { value: "0", priority: "red" },
         debuffResist: { value: "0", priority: "red" },
         beascuitOption: { text: "Water DMG", value: "n×4", priority: "yellow" }
@@ -408,6 +408,7 @@ const TEAM_BUILDS = {
         notes: `-Трежуры: Алый Свисток, Свиток, Часы
 -Все баффы команды дают 101% крита с учетом бондов скинов Лили и Соли и конфетой Джелли +30, не собираем его вовсе. Но для СиФейри и Сельтзер всё же можно собрать немного - их первые скиллы начинаются до баффа от Джеллифиш, но и ценность у 3% крита как у 0.1% атк
 -Ментол обязан иметь наивысшую атаку в команде (не atk% в статах, а именно числовое значение)
+-Бафф [Fuzzy Scarf](../images/38px-Status_Fuzzy_Scarf.png) Феррета висит на Ментоле
 Тайминги:
 ДО НАДПИСИ "BOSS"
 1) На авто нажимаем на Феррета -> Он использует навык
@@ -506,6 +507,7 @@ const TEAM_BUILDS = {
 -От амплифая бондов зависит прожатие скилла Арчера, картинка будет [тут](../images/Archer_Amp_Buff.png)
 -Конфета Пафф желательно запушить до 25+ уровня, а то и до 30, иначе прожим работает хуже и придется жертвовать другими статами. Конфету ББП так же нужно прокачать.
 -Нужное Atk SPD Арчеру зависит от его уровня джема и указано на картинке [тут](../images/Archer_SPD.png). Учитывайте, что эти значения идут уже с 1★ и баффом 7% от него. При несоблюдении теряется куча урона
+-У Феррета должно быть больше Atk SPD чем у Банни
 Тайминги:
 ДО НАДПИСИ "BOSS"
 1) На авто нажимаем на Феррета и Банни -> Они используют навык
@@ -557,14 +559,38 @@ const TEAM_BUILDS = {
                 statsId: "creamPuff",
                 name: "Cream Puff Cookie",
                 image: "../images/Cookie_cream_puff_card.png",
-                tart: "../images/Topping_tart_peanut_3.png",
                 descriptionTitle: "Сборка",
-                tops: [
-                    "../images/Crit_top.png",
-                    "../images/Crit_top.png",
-                    "../images/Hp_top.png",
-                    "../images/Hp_top.png",
-                    "../images/CD_top.png"
+                builds: [
+                    {
+                        tart: "../images/Topping_tart_peanut_3.png",
+                        tops: [
+                            "../images/Crit_top.png",
+                            "../images/Crit_top.png",
+                            "../images/Hp_top.png",
+                            "../images/Hp_top.png",
+                            "../images/CD_top.png"
+                            ]
+                    },
+                    {
+                        tart: "../images/Topping_tart_chocolate_3.png",
+                        tops: [
+                            "../images/Crit_top.png",
+                            "../images/Crit_top.png",
+                            "../images/Hp_top.png",
+                            "../images/Hp_top.png",
+                            "../images/Hp_top.png"
+                        ]
+                    },
+                    {
+                        tart: "../images/Topping_tart_peanut_3.png",
+                        tops: [
+                            "../images/Crit_top.png",
+                            "../images/Crit_top.png",
+                            "../images/Hp_top.png",
+                            "../images/Hp_top.png",
+                            "../images/HP_top.png"
+                        ]
+                    }
                 ]
             },
             {
@@ -691,14 +717,28 @@ const TEAM_BUILDS = {
                 statsId: "puddingALaMode",
                 name: "Pudding à la Mode Cookie",
                 image: "../images/Cookie_pudding_a_la_mode_card.png",
-                tart: "../images/Topping_tart_caramel_3.png",
                 descriptionTitle: "Сборка",
-                tops: [
-                    "../images/Spd_top.png",
-                    "../images/Spd_top.png",
-                    "../images/Spd_top.png",
-                    "../images/Crit_top.png",
-                    "../images/Crit_top.png"
+                 builds: [
+                    {
+                        tart: "../images/Topping_tart_caramel_3.png",
+                        tops: [
+                        "../images/Spd_top.png",
+                        "../images/Spd_top.png",
+                        "../images/Spd_top.png",
+                        "../images/Crit_top.png",
+                        "../images/Crit_top.png"
+                        ]
+                    },
+                    {
+                        tart: "../images/Topping_tart_caramel_3.png",
+                        tops: [
+                        "../images/Amp_top.png",
+                        "../images/Amp_top.png",
+                        "../images/Spd_top.png",
+                        "../images/Spd_top.png",
+                        "../images/Crit_top.png"
+                        ]
+                    }
                 ]
             },
             {
